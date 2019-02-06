@@ -11,10 +11,15 @@ namespace Automata_Assignment_1
         static string fileLocation = "D:\\automata.txt";
         LanguageSyntax ls = new LanguageSyntax();
         StreamReader sr = new StreamReader(fileLocation);
+        string currentLine;
         public FileInterpreter()
         {
-            string firstWord = sr.ReadLine();
-            Console.WriteLine(firstWord);
+            currentLine = sr.ReadLine();
+            Console.WriteLine(currentLine);
+            if (currentLine.StartsWith(ls.Comment))
+            {
+                Console.WriteLine("That was a commment!");
+            }
         }
         
 
