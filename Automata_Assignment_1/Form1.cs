@@ -16,6 +16,7 @@ namespace Automata_Assignment_1
         {
             InitializeComponent();
             FileInterpreter fi = new FileInterpreter();
+            fi.readFile();
         }
 
         private void Form1_Load(object sender, EventArgs e)

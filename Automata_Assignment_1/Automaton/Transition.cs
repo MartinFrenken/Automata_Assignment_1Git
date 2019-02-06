@@ -8,9 +8,9 @@ namespace Automata_Assignment_1.Automaton
 {
     public class Transition
     {
-        private State InitialState { get; }
-        private State DestinationState { get; }
-        private char InputCharacter { get; }
+        public State InitialState { get; }
+        public State DestinationState { get; }
+        public char InputCharacter { get; }
 
         public Transition(State initialState,State destinationState,char inputCharacter)
         {

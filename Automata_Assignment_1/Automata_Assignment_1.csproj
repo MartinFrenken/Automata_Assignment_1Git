@@ -46,9 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alphabet.cs" />
+    <Compile Include="Automaton\Analyzer.cs" />
     <Compile Include="Automaton\Automaton.cs" />
     <Compile Include="Automaton\State.cs" />
-    <Compile Include="Automaton\StateSet.cs" />
     <Compile Include="Automaton\Transition.cs" />
     <Compile Include="Automaton\TransitionSet.cs" />
     <Compile Include="FileInterpreter.cs" />

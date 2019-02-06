@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Automata_Assignment_1.Automaton
 {
-    public class TransitionSet
+    public class Analyzer
     {
-        public List<Transition> StoredStates { get; }
-        void add(Transition transition)
+        public bool ValidateForDFA(Automaton automaton)
         {
-            StoredStates.Add(transition);
+            List<Transition> states = automaton.Transitions.StoredStates;
             
+            return false;
         }
+            
     }
 }

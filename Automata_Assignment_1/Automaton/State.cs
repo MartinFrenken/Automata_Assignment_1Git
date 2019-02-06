@@ -8,9 +8,9 @@ namespace Automata_Assignment_1.Automaton
 {
     public class State
     {
-        private string StateName { get; }
-        private bool IsBeginState { get; }
-        private bool IsEndState { get; }
+        public string StateName { get; }
+        public bool IsBeginState { get; }
+        public bool IsEndState { get; }
 
         public State(string stateName)
         {
