@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Automata_Assignment_1
 {
-    class FileInterpreter
+    public class FileInterpreter
     {
+        LanguageSyntax ls = new LanguageSyntax();
+
+        
 
     }
 }
