@@ -14,10 +14,5 @@ namespace Automata_Assignment_1
         public string FinalStateCollection { get; } = "final:";
         public string Arrow { get; } = "-->";
         public string Endline { get; } = "end.";
-        
-
-
-
-
     }
 }

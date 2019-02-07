@@ -40,10 +40,10 @@ namespace Automata_Assignment_1
         void generateAlphabet()
         {
             Alphabet alphabet = new Alphabet();
-            currentLine.Replace(ls.Alphabet, "grgr");
-            currentLine.Trim(' ');
-            Console.WriteLine("Trimmed version: "+currentLine);
-            foreach (char c in currentLine)
+            string trimmedOne =currentLine.Replace(ls.Alphabet, "");
+            string trimmedTwo =currentLine.Trim(' ');
+            Console.WriteLine("Trimmed version: "+trimmedTwo);
+            foreach (char c in trimmedTwo)
             {
                 alphabet.Add(c);
                 Console.WriteLine("Added something!");
