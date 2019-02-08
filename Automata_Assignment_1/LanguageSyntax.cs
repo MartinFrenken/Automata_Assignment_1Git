@@ -12,6 +12,7 @@ namespace Automata_Assignment_1
         public  string Alphabet { get; } = "alphabet:";
         public  string StateCollection { get; } = "states:";
         public string FinalStateCollection { get; } = "final:";
+        public string Transition { get; } = "transitions:";
         public string Arrow { get; } = "-->";
         public string Endline { get; } = "end.";
     }

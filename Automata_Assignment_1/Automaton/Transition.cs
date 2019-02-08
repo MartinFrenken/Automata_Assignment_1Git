@@ -8,13 +8,13 @@ namespace Automata_Assignment_1.Automaton
 {
     public class Transition
     {
-        public State InitialState { get; }
+
         public State DestinationState { get; }
         public char InputCharacter { get; }
 
-        public Transition(State initialState,State destinationState,char inputCharacter)
+        public Transition(char inputCharacter,State destinationState)
         {
-            InitialState = initialState;
+           
             DestinationState = destinationState;
             InputCharacter = inputCharacter;
         }

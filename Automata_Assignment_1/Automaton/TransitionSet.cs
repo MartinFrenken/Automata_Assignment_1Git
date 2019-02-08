@@ -8,10 +8,10 @@ namespace Automata_Assignment_1.Automaton
 {
     public class TransitionSet
     {
-        public List<Transition> StoredStates { get; }
+        public List<Transition> StoredTransitions { get; }
         void add(Transition transition)
         {
-            StoredStates.Add(transition);
+            StoredTransitions.Add(transition);
             
         }
     }

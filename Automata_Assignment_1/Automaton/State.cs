@@ -10,7 +10,8 @@ namespace Automata_Assignment_1.Automaton
     {
         public string StateName { get; }
         public bool IsBeginState { get; }
-        public bool IsEndState { get; }
+        public bool IsEndState { private set;get; }
+        public List<Transition> Neighbours { get; } = new List<Transition>();
 
         public State(string stateName)
         {
@@ -18,10 +19,20 @@ namespace Automata_Assignment_1.Automaton
             IsBeginState = false;
             IsEndState = false;
         }
-        public State(string stateName,bool ce)
+        public State(string stateName,bool isBeginState)
         {
             StateName = stateName;
-            IsBeginState = false;
+            IsBeginState = isBeginState;
+            IsEndState = false;
+        }
+      
+        public void AddTransition(Transition transition)
+        {
+            Neighbours.Add(transition);
+        }
+
+        public void SetEndState()
+        {
             IsEndState = false;
         }
     }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Automata_Assignment_1.Automaton
 {
-    public class Analyzer
+    public class StateSet
     {
-        public bool ValidateForDFA(Automaton automaton)
+        public List<State> StoredStates { get; } = new List<State>();
+        public void add(State state)
         {
-            List<Transition> states = automaton.Transitions.StoredTransitions;
+           
+            StoredStates.Add(state);
             
-            return false;
         }
-            
     }
 }
