@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Automata_Assignment_1.Automaton
+namespace Automata_Assignment_1.Automatons
 {
     public class Transition
     {
 
         public State DestinationState { get; }
-        public string InputAlphabet { get; }
+        public char InputCharacter { get; }
 
-        public Transition(string inputAlphabet,State destinationState)
+        public Transition(char inputAlphabet,State destinationState)
         {
            
             DestinationState = destinationState;
-            InputAlphabet = inputAlphabet;
+            InputCharacter = inputAlphabet;
         }
         
     }

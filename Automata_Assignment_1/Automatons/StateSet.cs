@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Automata_Assignment_1.Automaton
+namespace Automata_Assignment_1.Automatons
 {
     public class StateSet
     {

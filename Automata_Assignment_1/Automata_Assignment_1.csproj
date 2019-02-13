@@ -47,13 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alphabet.cs" />
-    <Compile Include="Automaton\Analyzer.cs" />
-    <Compile Include="Automaton\Automaton.cs" />
-    <Compile Include="Automaton\AutomatonFactory.cs" />
-    <Compile Include="Automaton\State.cs" />
-    <Compile Include="Automaton\StateSet.cs" />
-    <Compile Include="Automaton\Transition.cs" />
-    <Compile Include="Automaton\TransitionSet.cs" />
+    <Compile Include="Automatons\Analyzer.cs" />
+    <Compile Include="Automatons\Automaton.cs" />
+    <Compile Include="Automatons\AutomatonFactory.cs" />
+    <Compile Include="Automatons\State.cs" />
+    <Compile Include="Automatons\StateSet.cs" />
+    <Compile Include="Automatons\Transition.cs" />
+    <Compile Include="Automatons\TransitionSet.cs" />
     <Compile Include="FileInterpreter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

@@ -8,7 +8,7 @@ namespace Automata_Assignment_1
 {
     public class Alphabet
     {
-        List<char> characters { get; } = new List<char>();
+        public List<char> characters { get; } = new List<char>();
         public void Add(char letter)
         {
             characters.Add(letter);

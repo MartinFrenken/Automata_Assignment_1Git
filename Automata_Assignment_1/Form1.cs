@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Automata_Assignment_1.Automatons;
 
 namespace Automata_Assignment_1
 {
@@ -16,7 +17,11 @@ namespace Automata_Assignment_1
         {
             InitializeComponent();
             FileInterpreter fi = new FileInterpreter();
-            fi.readFile();
+            Analyzer analyzer = new Analyzer();
+            var x = fi.generateAutomaton();
+            MessageBox.Show(analyzer.isDfa(x).ToString());
+           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
