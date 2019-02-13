@@ -18,14 +18,22 @@ namespace Automata_Assignment_1.Automatons
                 foreach (Transition transition in state.Neighbours)
                 {
                     inputsForTransitions.Add(transition.InputCharacter);
+                    if (transition.InputCharacter == '_')
+                    {
+                        return false;
+                    }
                 }
-                if (automaton.Alphabet.characters.All(inputsForTransitions.Contains))
+                if (!automaton.Alphabet.characters.All(inputsForTransitions.Contains))
+                {      
+                    return false;
+                }
+                if (automaton.Alphabet.characters.Count() != inputsForTransitions.Count())
                 {
-                    return true;
+                    return false;
                 }
-                
             }
-            return false;
+
+            return true;
         }
        
     }
