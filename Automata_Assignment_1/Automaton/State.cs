@@ -33,7 +33,7 @@ namespace Automata_Assignment_1.Automaton
 
         public void SetEndState()
         {
-            IsEndState = false;
+            IsEndState = true;
         }
     }
 }

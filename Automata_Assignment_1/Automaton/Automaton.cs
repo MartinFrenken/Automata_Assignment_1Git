@@ -8,11 +8,11 @@ namespace Automata_Assignment_1.Automaton
 {
     public class Automaton
     {
-        public TransitionSet Transitions { get; }
+        StateSet AutomatonStates { get; }
   
-        public Automaton(TransitionSet transitionCollection)
+        public Automaton(StateSet states)
         {
-            Transitions = transitionCollection;
+            states = AutomatonStates;
         }
 
      

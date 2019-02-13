@@ -10,13 +10,13 @@ namespace Automata_Assignment_1.Automaton
     {
 
         public State DestinationState { get; }
-        public char InputCharacter { get; }
+        public string InputAlphabet { get; }
 
-        public Transition(char inputCharacter,State destinationState)
+        public Transition(string inputAlphabet,State destinationState)
         {
            
             DestinationState = destinationState;
-            InputCharacter = inputCharacter;
+            InputAlphabet = inputAlphabet;
         }
         
     }

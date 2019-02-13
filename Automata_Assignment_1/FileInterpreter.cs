@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Automata_Assignment_1.Automaton;
+using System.Text.RegularExpressions;
 
 namespace Automata_Assignment_1
 {
@@ -74,7 +75,7 @@ namespace Automata_Assignment_1
             State newState;
             for (int i=0;i<states.Count;i++)
             {
-                if (i == 1)
+                if (i == 0)
                 {
                 newState = new State(states.ElementAt(i),true);
                 }
@@ -127,7 +128,17 @@ namespace Automata_Assignment_1
 
             foreach (string transition in transitionStrings)
             {
-               // transition
+
+                string trimmedTransition = clearSpaces(transition);
+                string[] splitTransition = Regex.Split(trimmedTransition, "-->|,|//s");
+                //The first string in the splitTransition is the initial state, the second is the transition character and the third is the destination state
+                State initialState = stateSet.StoredStates.Find(state => state.StateName == splitTransition[0]);
+                State finalState = new State(splitTransition[2]);
+                Transition transitionToAdd = new Transition(splitTransition[1], finalState);
+                initialState.AddTransition(transitionToAdd);
+                var x = stateSet.StoredStates;
+                Console.WriteLine(x);
+          
             }
 
 
@@ -138,6 +149,11 @@ namespace Automata_Assignment_1
             string trimmedOne = currentLine.Replace(wordToRemove, "");
             string trimmedTwo = trimmedOne.Trim(' ');
             return trimmedTwo;
+        }
+        string clearSpaces(string inputString)
+        {
+            string trimmedOne = inputString.Replace(" ","");
+            return trimmedOne;
         }
 
         List<string> seperateString(string lineToSeparate)
