@@ -11,9 +11,14 @@ namespace Automata_Assignment_1.Automatons
         public bool isDfa(Automaton automaton)
         {
             List<State> states = automaton.AutomatonStates.StoredStates;
-
+            int endStates = 0;
             foreach (State state in states)
             {
+                if (state.IsEndState)
+                {
+                    endStates++;
+                }
+
                 List<char> inputsForTransitions = new List<char>();
                 foreach (Transition transition in state.Neighbours)
                 {
@@ -31,6 +36,11 @@ namespace Automata_Assignment_1.Automatons
                 {
                     return false;
                 }
+            }
+
+            if (endStates==0)
+            {
+                return false;
             }
 
             return true;

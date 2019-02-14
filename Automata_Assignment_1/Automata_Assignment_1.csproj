@@ -54,6 +54,7 @@
     <Compile Include="Automatons\StateSet.cs" />
     <Compile Include="Automatons\Transition.cs" />
     <Compile Include="Automatons\TransitionSet.cs" />
+    <Compile Include="dotFileWriter.cs" />
     <Compile Include="FileInterpreter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
