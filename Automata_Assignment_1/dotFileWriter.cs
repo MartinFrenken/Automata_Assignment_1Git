@@ -15,7 +15,7 @@ namespace Automata_Assignment_1
             string doubleCircle = "[shape=doublecircle]";
             string singleCircle = "[shape=circle]";
             string quote = "\"";
-            using (StreamWriter outputFile = new StreamWriter("D:\\dotfile.txt"))
+            using (StreamWriter outputFile = new StreamWriter("automaton.txt"))
             {
                 outputFile.WriteLine("digraph myAutomaton {");
                 outputFile.WriteLine("rankdir=LR;");

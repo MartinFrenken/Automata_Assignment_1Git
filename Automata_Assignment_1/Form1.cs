@@ -40,8 +40,7 @@ namespace Automata_Assignment_1
 
             dot.StartInfo.FileName = "dot.exe";
 
-            dot.StartInfo.Arguments = "-Tpng -o result.png automaton.dot";
-
+            dot.StartInfo.Arguments = "-Tpng -oresult.png automaton.txt";
             dot.Start();
 
             dot.WaitForExit();
@@ -55,5 +54,7 @@ namespace Automata_Assignment_1
         {
 
         }
+
+   
     }
 }
