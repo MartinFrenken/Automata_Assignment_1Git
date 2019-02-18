@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.isDetInfo = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.isDetLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -46,15 +48,14 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label1
+            // isDetInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1131, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-     
+            this.isDetInfo.AutoSize = true;
+            this.isDetInfo.Location = new System.Drawing.Point(1, 10);
+            this.isDetInfo.Name = "isDetInfo";
+            this.isDetInfo.Size = new System.Drawing.Size(111, 17);
+            this.isDetInfo.TabIndex = 1;
+            this.isDetInfo.Text = "Is Deterministic: ";
             // 
             // textBox1
             // 
@@ -83,10 +84,21 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.isDetLbl);
+            this.panel1.Controls.Add(this.isDetInfo);
             this.panel1.Location = new System.Drawing.Point(1116, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(216, 104);
             this.panel1.TabIndex = 5;
+            // 
+            // isDetLbl
+            // 
+            this.isDetLbl.AutoSize = true;
+            this.isDetLbl.Location = new System.Drawing.Point(112, 10);
+            this.isDetLbl.Name = "isDetLbl";
+            this.isDetLbl.Size = new System.Drawing.Size(0, 17);
+            this.isDetLbl.TabIndex = 6;
             // 
             // Form1
             // 
@@ -96,14 +108,15 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "bottom text";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,11 +125,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label isDetInfo;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label isDetLbl;
     }
 }
 

@@ -13,7 +13,7 @@ namespace Automata_Assignment_1
         public void writeToDotFile(Automaton automaton )
         {
             string doubleCircle = "[shape=doublecircle]";
-            string singleCircle = "[shape=circle]";
+            string singleCircle = "[shape=circle ]";
             string quote = "\"";
             using (StreamWriter outputFile = new StreamWriter("automaton.txt"))
             {

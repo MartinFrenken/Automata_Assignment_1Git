@@ -45,6 +45,47 @@ namespace Automata_Assignment_1.Automatons
 
             return true;
         }
-       
+        public bool isLegalWord(Automaton automaton,string inputText)
+        {
+            State beginState = findInitialState(automaton.AutomatonStates); 
+            foreach (char c in inputText)
+            {
+              
+
+            }
+
+            return false;
+        }
+
+        public State findInitialState(StateSet states)
+        {
+            foreach (var state in states.StoredStates)
+            {
+                if (state.IsBeginState)
+                {
+                    return state;
+                }
+            }
+
+            return null;
+        }
+
+        public StateSet returnPossibleDestinationState(char c,StateSet inputSet)
+        {
+            StateSet outputSet = new StateSet();
+            foreach (State state in inputSet.StoredStates)
+            {
+                foreach (var transition in state.Neighbours)
+                {
+                    if (transition.InputCharacter == c)
+                    {
+                        outputSet.add(transition.DestinationState);
+                    }
+                }
+            }
+
+            return outputSet;
+        }
     }
+   
 }

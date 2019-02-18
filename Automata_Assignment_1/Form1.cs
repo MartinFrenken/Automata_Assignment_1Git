@@ -20,10 +20,12 @@ namespace Automata_Assignment_1
             FileInterpreter fi = new FileInterpreter();
             Analyzer analyzer = new Analyzer();
             var generatedAutomaton = fi.generateAutomaton();
-            MessageBox.Show(analyzer.isDfa(generatedAutomaton).ToString());
+     
             dotFileWriter dw = new dotFileWriter();
             dw.writeToDotFile(generatedAutomaton);
             generateGraph();
+            isDetLbl.Text = analyzer.isDfa(generatedAutomaton).ToString();
+
 
         }
 

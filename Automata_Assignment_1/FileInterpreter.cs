@@ -12,7 +12,7 @@ namespace Automata_Assignment_1
 {
     public class FileInterpreter
     {
-        static string fileLocation = "D:\\automata.txt";
+        static string fileLocation = "automataInput.txt";
         LanguageSyntax ls = new LanguageSyntax();
         StreamReader sr = new StreamReader(fileLocation);
         StateSet stateSet = new StateSet();
