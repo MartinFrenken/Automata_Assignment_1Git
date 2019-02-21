@@ -30,9 +30,9 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.isDetInfo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.inputWordBox = new System.Windows.Forms.TextBox();
+            this.resultLabel = new System.Windows.Forms.Label();
+            this.checkButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.isDetLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -41,7 +41,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1080, 753);
             this.pictureBox1.TabIndex = 0;
@@ -57,30 +57,33 @@
             this.isDetInfo.TabIndex = 1;
             this.isDetInfo.Text = "Is Deterministic: ";
             // 
-            // textBox1
+            // inputWordBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(1116, 230);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 2;
+            this.inputWordBox.Location = new System.Drawing.Point(1116, 230);
+            this.inputWordBox.Name = "inputWordBox";
+            this.inputWordBox.Size = new System.Drawing.Size(100, 22);
+            this.inputWordBox.TabIndex = 2;
+            this.inputWordBox.TextChanged += new System.EventHandler(this.inputWordBox_TextChanged);
             // 
-            // label2
+            // resultLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1113, 287);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Location = new System.Drawing.Point(1118, 267);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(52, 17);
+            this.resultLabel.TabIndex = 3;
+            this.resultLabel.Text = "Result:";
+            this.resultLabel.Click += new System.EventHandler(this.resultLabel_Click);
             // 
-            // button1
+            // checkButton
             // 
-            this.button1.Location = new System.Drawing.Point(1232, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.checkButton.Location = new System.Drawing.Point(1232, 229);
+            this.checkButton.Name = "checkButton";
+            this.checkButton.Size = new System.Drawing.Size(75, 23);
+            this.checkButton.TabIndex = 4;
+            this.checkButton.Text = "check";
+            this.checkButton.UseVisualStyleBackColor = true;
+            this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
             // 
             // panel1
             // 
@@ -105,9 +108,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1570, 796);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.checkButton);
+            this.Controls.Add(this.resultLabel);
+            this.Controls.Add(this.inputWordBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -126,9 +129,9 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label isDetInfo;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox inputWordBox;
+        private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.Button checkButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label isDetLbl;
     }

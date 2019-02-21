@@ -142,7 +142,7 @@ namespace Automata_Assignment_1
                 //The first string in the splitTransition is the initial state, the second is the transition character and the third is the destination state
 
                 State initialState = stateSet.StoredStates.Find(state => state.StateName == splitTransition[0]);
-                State finalState = new State(splitTransition[2]);
+                State finalState = stateSet.StoredStates.Find(state => state.StateName == splitTransition[2]); ;
                 Transition transitionToAdd = new Transition(splitTransition[1][0], finalState);
                 initialState.AddTransition(transitionToAdd);
                

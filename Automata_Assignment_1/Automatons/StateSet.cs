@@ -15,5 +15,13 @@ namespace Automata_Assignment_1.Automatons
             StoredStates.Add(state);
             
         }
+
+        public void add(StateSet stateSet)
+        {
+            foreach (var state in stateSet.StoredStates)
+            {
+                add(state);
+            }
+        }
     }
 }

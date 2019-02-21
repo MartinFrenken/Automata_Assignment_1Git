@@ -47,11 +47,22 @@ namespace Automata_Assignment_1.Automatons
         }
         public bool isLegalWord(Automaton automaton,string inputText)
         {
-            State beginState = findInitialState(automaton.AutomatonStates); 
-            foreach (char c in inputText)
+            State beginState = findInitialState(automaton.AutomatonStates);
+            StateSet initialStateSet= new StateSet();
+            StateSet currentStateSet= new StateSet();
+            initialStateSet = initializeStateSet(beginState);
+            currentStateSet = CorrectForEpsilon(initialStateSet);
+            for (int i = 0;i<inputText.Length;i++)
             {
-              
 
+                StateSet previousStateSet = currentStateSet;
+               currentStateSet = returnPossibleDestinationStates(inputText.ElementAt(i), CorrectForEpsilon(currentStateSet));
+                currentStateSet = CorrectForEpsilon(currentStateSet);
+            }
+            
+            if (containsFinalState(currentStateSet,automaton))
+            {
+                return true;
             }
 
             return false;
@@ -69,8 +80,9 @@ namespace Automata_Assignment_1.Automatons
 
             return null;
         }
+        
 
-        public StateSet returnPossibleDestinationState(char c,StateSet inputSet)
+        public StateSet returnPossibleDestinationStates(char c,StateSet inputSet)
         {
             StateSet outputSet = new StateSet();
             foreach (State state in inputSet.StoredStates)
@@ -86,6 +98,61 @@ namespace Automata_Assignment_1.Automatons
 
             return outputSet;
         }
+        
+        public StateSet CorrectForEpsilon(StateSet inputSet)
+        {
+            StateSet outputSet = new StateSet();
+            foreach (State state in inputSet.StoredStates)
+            {
+                outputSet.add(state);
+                foreach (var transition in state.Neighbours)
+                {
+                    if (transition.InputCharacter == '_')
+                    {
+                        outputSet.add(transition.DestinationState);
+                    }
+                }
+            }
+
+            return outputSet;
+        }
+        public StateSet initializeStateSet( State inputState)
+        {
+            StateSet outputSet = new StateSet();
+            outputSet.StoredStates.Add(inputState);
+            
+
+            return outputSet;
+        }
+
+        public bool containsFinalState(StateSet inputStateSet,Automaton automaton)
+        {
+            List<State> finalStates = new List<State>();
+
+            foreach (State state in automaton.AutomatonStates.StoredStates)
+            {
+                if (state.IsEndState)
+                {
+                    finalStates.Add(state);
+                }
+
+
+            }
+
+            foreach (State state in inputStateSet.StoredStates)
+            {
+                foreach (State finalState in finalStates)
+                {
+                    if (finalState.StateName == state.StateName)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+        
     }
    
 }

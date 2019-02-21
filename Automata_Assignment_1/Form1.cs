@@ -25,7 +25,7 @@ namespace Automata_Assignment_1
             dw.writeToDotFile(generatedAutomaton);
             generateGraph();
             isDetLbl.Text = analyzer.isDfa(generatedAutomaton).ToString();
-
+            Console.WriteLine(analyzer.isLegalWord(generatedAutomaton, "menno").ToString());
 
         }
 
@@ -57,6 +57,24 @@ namespace Automata_Assignment_1
 
         }
 
-   
+        private void inputWordBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkButton_Click(object sender, EventArgs e)
+        {
+            FileInterpreter fi = new FileInterpreter();
+            Analyzer analyzer = new Analyzer();
+            var generatedAutomaton = fi.generateAutomaton();
+            resultLabel.Text = analyzer.isLegalWord(generatedAutomaton, inputWordBox.Text).ToString();
+
+
+        }
+
+        private void resultLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
