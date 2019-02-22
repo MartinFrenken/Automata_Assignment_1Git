@@ -23,5 +23,8 @@ namespace Automata_Assignment_1.Automatons
                 add(state);
             }
         }
+        public static void test() 
+        {
+        }
     }
 }

@@ -35,5 +35,6 @@ namespace Automata_Assignment_1.Automatons
         {
             IsEndState = true;
         }
+
     }
 }
