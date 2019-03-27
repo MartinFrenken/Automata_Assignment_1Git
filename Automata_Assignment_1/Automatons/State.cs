@@ -8,11 +8,16 @@ namespace Automata_Assignment_1.Automatons
 {
     public class State
     {
-        public string StateName { get; }
+        public string StateName { get; protected set; }
         public bool IsBeginState { get; }
         public bool IsEndState { private set;get; }
         public List<Transition> Neighbours { get; } = new List<Transition>();
-
+        public bool IsDone = false;
+        public State()
+        {
+            IsBeginState = false;
+            IsEndState = false;
+        }
         public State(string stateName)
         {
             StateName = stateName;
@@ -25,7 +30,20 @@ namespace Automata_Assignment_1.Automatons
             IsBeginState = isBeginState;
             IsEndState = false;
         }
-      
+
+        public override bool Equals(object obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                State s = (State) obj;
+                return (s.StateName == this.StateName);
+            }
+        }
+
         public void AddTransition(Transition transition)
         {
             Neighbours.Add(transition);
@@ -35,6 +53,7 @@ namespace Automata_Assignment_1.Automatons
         {
             IsEndState = true;
         }
+
 
     }
 }

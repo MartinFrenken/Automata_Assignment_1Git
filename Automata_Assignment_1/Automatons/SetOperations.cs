@@ -12,7 +12,7 @@ namespace Automata_Assignment_1.Automatons
         {
             StateSet outputSet = new StateSet();
             outputSet.StoredStates.Add(inputState);
-
+            
 
             return outputSet;
         }
@@ -53,10 +53,11 @@ namespace Automata_Assignment_1.Automatons
             {
                 foreach (var transition in state.Neighbours)
                 {
-                    if (transition.InputCharacter == c)
+                    if (transition.InputCharacter == c && state.StateName != "Sink")
                     {
                         outputSet.add(transition.DestinationState);
                     }
+                
                 }
             }
 

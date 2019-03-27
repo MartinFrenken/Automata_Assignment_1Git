@@ -20,12 +20,14 @@ namespace Automata_Assignment_1
             FileInterpreter fi = new FileInterpreter();
             Analyzer analyzer = new Analyzer();
             var generatedAutomaton = fi.generateAutomaton();
-     
+            AutomatonGenerator ag = new AutomatonGenerator();
+            Automaton PowerSetAutomaton =ag.GenerateDfa(generatedAutomaton);
             dotFileWriter dw = new dotFileWriter();
-            dw.writeToDotFile(generatedAutomaton);
+            dw.writeToDotFile(PowerSetAutomaton);
             generateGraph();
             isDetLbl.Text = analyzer.isDfa(generatedAutomaton).ToString();
             Console.WriteLine(analyzer.isLegalWord(generatedAutomaton, "menno").ToString());
+          
 
         }
 
