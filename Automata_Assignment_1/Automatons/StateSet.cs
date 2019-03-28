@@ -9,7 +9,7 @@ namespace Automata_Assignment_1.Automatons
     public class StateSet
     {
         
-        public List<State> StoredStates { get; } = new List<State>();
+        public List<State> StoredStates { get; private set; } = new List<State>();
         public void add(State state)
         {
            
@@ -51,20 +51,70 @@ namespace Automata_Assignment_1.Automatons
 
         public  StateSet CorrectForEpsilon()
         {
-            StateSet outputSet = new StateSet();
+            StateSet output = new StateSet();
+            while(this.ContainsEpsilon())
+            output= this.CorrectForEpsilonOnce();
+            return output;
+        }
+
+        private StateSet CorrectForEpsilonOnce()
+        {
+            HashSet<State> outputHash = ConvertToHash(this);
+
             foreach (State state in this.StoredStates)
             {
-                outputSet.add(state);
+                if (!outputHash.Contains(state))
+                    outputHash.Add(state);
                 foreach (var transition in state.Neighbours)
                 {
                     if (transition.InputCharacter == '_')
                     {
-                        outputSet.add(transition.DestinationState);
+                        if (!outputHash.Contains(transition.DestinationState))
+                            outputHash.Add(transition.DestinationState);
+                    }
+                }
+
+            }
+            StateSet output = ConvertHashToStateSet(outputHash);
+            this.StoredStates = output.StoredStates;
+            return output;
+
+        }
+
+        public HashSet<State> ConvertToHash(StateSet stateSet)
+        {
+            HashSet<State> output = new HashSet<State>();
+            foreach (State state in stateSet.StoredStates)
+            {
+                output.Add(state);
+            }
+            return output;
+        }
+        public StateSet ConvertHashToStateSet(HashSet<State>stateSet)
+        {
+            StateSet output = new StateSet();
+            foreach (State state in stateSet)
+            {
+                output.add(state);
+            }
+            return output;
+        }
+        public bool ContainsEpsilon()
+        {
+            foreach (State state in this.StoredStates)
+            {
+          
+                foreach (var transition in state.Neighbours)
+                {
+                    if (transition.InputCharacter == '_'&&!transition.HandledForEpsilon)
+                    {
+                        transition.HandledForEpsilon = true;
+                        return true;
+                  
                     }
                 }
             }
-
-            return outputSet;
+            return false;
         }
 
         public  StateSet returnPossibleDestinationStates(char c)

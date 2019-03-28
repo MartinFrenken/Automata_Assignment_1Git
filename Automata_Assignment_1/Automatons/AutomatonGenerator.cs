@@ -9,66 +9,61 @@ namespace Automata_Assignment_1.Automatons
 {
     public class AutomatonGenerator
     {
-        public AutomatonGenerator()
+        Automaton automaton;
+        public AutomatonGenerator(Automaton inputAutomaton)
         {
-            
+            automaton = inputAutomaton;
             
           
         }
 
-        public Automaton GenerateDfa(Automaton inputAutomaton)
+        public Automaton GenerateDfa()
         {
+            //Get initial states
+            StateSet initialStates = GetInitialStates(automaton.AutomatonStates);
+            PowerState initialPowerState = new PowerState(initialStates);
 
+            getNeighbouringPowerStates(initialPowerState);
 
-            StateSet inputAutomatonStates = inputAutomaton.AutomatonStates;
-            var alphabet = inputAutomaton.Alphabet;
-            HashSet<State> outputStates = new HashSet<State>();
-            State Sink = GenerateSink(alphabet);
-            foreach (var state in inputAutomatonStates.StoredStates)
-            {
-                foreach (var character in alphabet.characters)
-                {
+            StateSet output = new StateSet();
+            output.add(initialPowerState);
+            
 
-                    StateSet stateSetForNewPowerState = new StateSet();
-                    State newState = new State();
-                    foreach (var transition in state.Neighbours)
-                    {
-                        if (transition.InputCharacter==character)
-                        stateSetForNewPowerState.add(transition.DestinationState);
-                    }
-
-
-                    if (stateSetForNewPowerState.StoredStates.Count > 1)
-                    {
-                        newState = new PowerState(stateSetForNewPowerState);  
-                    }
-
-                    else if (stateSetForNewPowerState.StoredStates.Count == 0)
-                    {
-                        //newState 
-                    }
-                    else
-                    {
-                        newState = stateSetForNewPowerState.StoredStates.ElementAt(0);
-                    }
-
-
-                    outputStates.Add(newState);
-
-                }
-            }
-
-            var Debug = outputStates;
-
-            return inputAutomaton;
+            return new Automaton(output,automaton.Alphabet);
 
 
 
 
         }
 
-       
 
+        List<PowerState> getNeighbouringPowerStates(PowerState powerState)
+        {
+            State newPowerState;
+                foreach (char c in automaton.Alphabet.characters)
+                {
+                StateSet stateSet = new StateSet();
+                    foreach (State state in powerState.States.StoredStates)
+                    {
+                       foreach (Transition transition in state.Neighbours)
+                       {
+                            if (transition.InputCharacter == c)
+                            {
+                            stateSet.add(transition.DestinationState);
+                            }
+                       }
+                    }
+                //StateSet stateSetToAdd = stateSet.CorrectForEpsilon();
+                if (stateSet.StoredStates.Count > 0)
+                    newPowerState = new PowerState(stateSet);
+                else
+                    newPowerState = GenerateSink(automaton.Alphabet);
+
+                powerState.AddTransition(new Transition(c, newPowerState));
+                }
+          
+            return null;
+        }
         private State GenerateSink(Alphabet alphabet)
         {
             State outputState = new State("Sink");
@@ -80,6 +75,16 @@ namespace Automata_Assignment_1.Automatons
 
             return outputState;
         }
+
+        private StateSet GetInitialStates(StateSet stateSet)
+        {
+            StateSet output = new StateSet();
+            StateSet s = stateSet;
+            output.add(s.findInitialState());
+            output= output.CorrectForEpsilon();
+            return output;
+        }
+
 
 
 

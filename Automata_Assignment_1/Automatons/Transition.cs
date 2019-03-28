@@ -10,6 +10,7 @@ namespace Automata_Assignment_1.Automatons
     {
 
         public State DestinationState { get; }
+        public bool HandledForEpsilon = false;
         public char InputCharacter { get; }
 
         public Transition(char inputAlphabet,State destinationState)

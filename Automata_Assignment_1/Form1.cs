@@ -20,8 +20,8 @@ namespace Automata_Assignment_1
             FileInterpreter fi = new FileInterpreter();
             Analyzer analyzer = new Analyzer();
             var generatedAutomaton = fi.generateAutomaton();
-            AutomatonGenerator ag = new AutomatonGenerator();
-            Automaton PowerSetAutomaton =ag.GenerateDfa(generatedAutomaton);
+            AutomatonGenerator ag = new AutomatonGenerator(generatedAutomaton);
+            Automaton PowerSetAutomaton =ag.GenerateDfa();
             dotFileWriter dw = new dotFileWriter();
             dw.writeToDotFile(PowerSetAutomaton);
             generateGraph();
