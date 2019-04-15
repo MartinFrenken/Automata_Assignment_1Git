@@ -10,25 +10,32 @@ namespace Automata_Assignment_1.Automatons
     public class AutomatonGenerator
     {
         Automaton automaton;
+        State sink;
+        Queue<PowerState> powerStateQueue = new Queue<PowerState>();
+        List<String> handledStates = new List<string>();
         public AutomatonGenerator(Automaton inputAutomaton)
         {
             automaton = inputAutomaton;
-            
-          
+            sink = GenerateSink(automaton.Alphabet);
+
         }
 
         public Automaton GenerateDfa()
         {
-            //Get initial states
+            StateSet output = new StateSet();
+
             StateSet initialStates = GetInitialStates(automaton.AutomatonStates);
             PowerState initialPowerState = new PowerState(initialStates);
-
-            getNeighbouringPowerStates(initialPowerState);
-
-            StateSet output = new StateSet();
-            output.add(initialPowerState);
-            
-
+            handledStates.Add(initialPowerState.StateName);
+            powerStateQueue.Enqueue(initialPowerState);
+            while (powerStateQueue.Count > 0)
+            {
+               PowerState newPowerState = powerStateQueue.Dequeue();
+                addNeighbouringPowerStates(newPowerState);
+                output.add(newPowerState);
+            }
+           
+      
             return new Automaton(output,automaton.Alphabet);
 
 
@@ -37,8 +44,9 @@ namespace Automata_Assignment_1.Automatons
         }
 
 
-        List<PowerState> getNeighbouringPowerStates(PowerState powerState)
+        StateSet addNeighbouringPowerStates(PowerState powerState)
         {
+            StateSet output = new StateSet();
             State newPowerState;
                 foreach (char c in automaton.Alphabet.characters)
                 {
@@ -47,22 +55,36 @@ namespace Automata_Assignment_1.Automatons
                     {
                        foreach (Transition transition in state.Neighbours)
                        {
-                            if (transition.InputCharacter == c)
+                            if (transition.InputCharacter == c )
                             {
-                            stateSet.add(transition.DestinationState);
+                                stateSet.add(transition.DestinationState);
                             }
                        }
                     }
                 //StateSet stateSetToAdd = stateSet.CorrectForEpsilon();
                 if (stateSet.StoredStates.Count > 0)
+                {
+                    stateSet = stateSet.CorrectForEpsilon();
                     newPowerState = new PowerState(stateSet);
+                    PowerState powerStateToEnqueue = new PowerState(stateSet);
+                    if (!handledStates.Contains(powerStateToEnqueue.StateName))
+                    {
+                        powerStateQueue.Enqueue(powerStateToEnqueue);
+                        handledStates.Add(powerStateToEnqueue.StateName);
+                    }
+                    else
+                    {
+                        int x = 1;//debug purposes on ly
+                    }
+                }
                 else
-                    newPowerState = GenerateSink(automaton.Alphabet);
+                    newPowerState = sink;
 
                 powerState.AddTransition(new Transition(c, newPowerState));
+        
                 }
-          
-            return null;
+
+            return output;
         }
         private State GenerateSink(Alphabet alphabet)
         {

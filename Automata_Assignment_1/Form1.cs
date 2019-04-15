@@ -25,7 +25,7 @@ namespace Automata_Assignment_1
             dotFileWriter dw = new dotFileWriter();
             dw.writeToDotFile(PowerSetAutomaton);
             generateGraph();
-            isDetLbl.Text = analyzer.isDfa(generatedAutomaton).ToString();
+            isDetLbl.Text = analyzer.isDfa(PowerSetAutomaton).ToString();
             Console.WriteLine(analyzer.isLegalWord(generatedAutomaton, "menno").ToString());
           
 

@@ -18,7 +18,12 @@ namespace Automata_Assignment_1.Automatons
             foreach (var state in states.StoredStates)
             {
                 this.StateName = this.StateName + state.StateName;
+                if (state.IsEndState)
+                    this.IsEndState = true;
             }
+            char[] word = this.StateName.ToCharArray();
+            Array.Sort(word);
+            this.StateName = new String(word);
         }
        
     }

@@ -51,10 +51,19 @@ namespace Automata_Assignment_1.Automatons
 
         public  StateSet CorrectForEpsilon()
         {
+            bool containedEpsilon = false;
             StateSet output = new StateSet();
-            while(this.ContainsEpsilon())
-            output= this.CorrectForEpsilonOnce();
-            return output;
+            while (this.ContainsEpsilon())
+            {
+                containedEpsilon = true;
+                output = this.CorrectForEpsilonOnce();
+            }
+            if (containedEpsilon)
+                return output;
+            else
+            {
+                return this;
+            }
         }
 
         private StateSet CorrectForEpsilonOnce()
