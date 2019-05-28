@@ -26,7 +26,7 @@ namespace Automata_Assignment_1
             dw.writeToDotFile(PowerSetAutomaton);
             generateGraph();
             isDetLbl.Text = analyzer.isDfa(PowerSetAutomaton).ToString();
-            Console.WriteLine(analyzer.isLegalWord(generatedAutomaton, "menno").ToString());
+            Console.WriteLine(analyzer.isLegalWord(generatedAutomaton, "r").ToString());
           
 
         }

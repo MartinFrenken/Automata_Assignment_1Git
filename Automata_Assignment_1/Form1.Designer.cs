@@ -41,9 +41,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(27, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1080, 753);
+            this.pictureBox1.Size = new System.Drawing.Size(810, 612);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -51,35 +53,39 @@
             // isDetInfo
             // 
             this.isDetInfo.AutoSize = true;
-            this.isDetInfo.Location = new System.Drawing.Point(1, 10);
+            this.isDetInfo.Location = new System.Drawing.Point(1, 8);
+            this.isDetInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.isDetInfo.Name = "isDetInfo";
-            this.isDetInfo.Size = new System.Drawing.Size(111, 17);
+            this.isDetInfo.Size = new System.Drawing.Size(84, 13);
             this.isDetInfo.TabIndex = 1;
             this.isDetInfo.Text = "Is Deterministic: ";
             // 
             // inputWordBox
             // 
-            this.inputWordBox.Location = new System.Drawing.Point(1116, 230);
+            this.inputWordBox.Location = new System.Drawing.Point(837, 187);
+            this.inputWordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.inputWordBox.Name = "inputWordBox";
-            this.inputWordBox.Size = new System.Drawing.Size(100, 22);
+            this.inputWordBox.Size = new System.Drawing.Size(76, 20);
             this.inputWordBox.TabIndex = 2;
             this.inputWordBox.TextChanged += new System.EventHandler(this.inputWordBox_TextChanged);
             // 
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(1118, 267);
+            this.resultLabel.Location = new System.Drawing.Point(838, 217);
+            this.resultLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(52, 17);
+            this.resultLabel.Size = new System.Drawing.Size(40, 13);
             this.resultLabel.TabIndex = 3;
             this.resultLabel.Text = "Result:";
             this.resultLabel.Click += new System.EventHandler(this.resultLabel_Click);
             // 
             // checkButton
             // 
-            this.checkButton.Location = new System.Drawing.Point(1232, 229);
+            this.checkButton.Location = new System.Drawing.Point(924, 186);
+            this.checkButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkButton.Name = "checkButton";
-            this.checkButton.Size = new System.Drawing.Size(75, 23);
+            this.checkButton.Size = new System.Drawing.Size(56, 19);
             this.checkButton.TabIndex = 4;
             this.checkButton.Text = "check";
             this.checkButton.UseVisualStyleBackColor = true;
@@ -90,30 +96,31 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.isDetLbl);
             this.panel1.Controls.Add(this.isDetInfo);
-            this.panel1.Location = new System.Drawing.Point(1116, 12);
+            this.panel1.Location = new System.Drawing.Point(837, 10);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 104);
+            this.panel1.Size = new System.Drawing.Size(162, 85);
             this.panel1.TabIndex = 5;
             // 
             // isDetLbl
             // 
             this.isDetLbl.AutoSize = true;
-            this.isDetLbl.Location = new System.Drawing.Point(112, 10);
+            this.isDetLbl.Location = new System.Drawing.Point(84, 8);
+            this.isDetLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.isDetLbl.Name = "isDetLbl";
-            this.isDetLbl.Size = new System.Drawing.Size(0, 17);
+            this.isDetLbl.Size = new System.Drawing.Size(0, 13);
             this.isDetLbl.TabIndex = 6;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1570, 796);
+            this.ClientSize = new System.Drawing.Size(1178, 647);
             this.Controls.Add(this.checkButton);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.inputWordBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "bottom text";
             this.Load += new System.EventHandler(this.Form1_Load);

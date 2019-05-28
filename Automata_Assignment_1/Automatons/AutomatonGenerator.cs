@@ -46,12 +46,14 @@ namespace Automata_Assignment_1.Automatons
 
         StateSet addNeighbouringPowerStates(PowerState powerState)
         {
+   
             StateSet output = new StateSet();
             State newPowerState;
                 foreach (char c in automaton.Alphabet.characters)
                 {
                 StateSet stateSet = new StateSet();
-                    foreach (State state in powerState.States.StoredStates)
+                StateSet iterationSet = powerState.States.CorrectForEpsilon();
+                    foreach (State state in iterationSet.StoredStates)
                     {
                        foreach (Transition transition in state.Neighbours)
                        {
@@ -64,7 +66,7 @@ namespace Automata_Assignment_1.Automatons
                 //StateSet stateSetToAdd = stateSet.CorrectForEpsilon();
                 if (stateSet.StoredStates.Count > 0)
                 {
-                    stateSet = stateSet.CorrectForEpsilon();
+                    stateSet.CorrectForEpsilon();
                     newPowerState = new PowerState(stateSet);
                     PowerState powerStateToEnqueue = new PowerState(stateSet);
                     if (!handledStates.Contains(powerStateToEnqueue.StateName))
