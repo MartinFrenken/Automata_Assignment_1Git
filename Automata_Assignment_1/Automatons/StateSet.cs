@@ -51,42 +51,34 @@ namespace Automata_Assignment_1.Automatons
 
         public  StateSet CorrectForEpsilon()
         {
-            bool containedEpsilon = false;
+            UnhandlePrevious();
             StateSet output = new StateSet();
             while (this.ContainsEpsilon())
             {
-                containedEpsilon = true;
-                output = this.CorrectForEpsilonOnce();
+                CorrectForEpsilonOnce();
             }
-            if (containedEpsilon)
-                return output;
-            else
-            {
-                return this;
-            }
+            return this;
         }
 
-        private StateSet CorrectForEpsilonOnce()
+        private void CorrectForEpsilonOnce()
         {
-            HashSet<State> outputHash = ConvertToHash(this);
-
-            foreach (State state in this.StoredStates)
+            if (ContainsEpsilon())
             {
-                if (!outputHash.Contains(state))
-                    outputHash.Add(state);
-                foreach (var transition in state.Neighbours)
+                foreach (State state in this.StoredStates.ToList())
                 {
-                    if (transition.InputCharacter == '_')
+
+                    foreach (var transition in state.Neighbours)
                     {
-                        if (!outputHash.Contains(transition.DestinationState))
-                            outputHash.Add(transition.DestinationState);
+                        if (transition.InputCharacter == '_' && !transition.HandledForEpsilon)
+                        {
+                            transition.HandledForEpsilon = true;
+                            if(!StoredStates.Contains(transition.DestinationState))
+                            StoredStates.Add(transition.DestinationState);
+
+                        }
                     }
                 }
-
             }
-            StateSet output = ConvertHashToStateSet(outputHash);
-            this.StoredStates = output.StoredStates;
-            return output;
 
         }
 
@@ -117,9 +109,22 @@ namespace Automata_Assignment_1.Automatons
                 {
                     if (transition.InputCharacter == '_'&&!transition.HandledForEpsilon)
                     {
-                        transition.HandledForEpsilon = true;
                         return true;
-                  
+                    }
+                }
+            }
+            return false;
+        }
+        public bool UnhandlePrevious()
+        {
+            foreach (State state in this.StoredStates)
+            {
+
+                foreach (var transition in state.Neighbours)
+                {
+                    if (transition.InputCharacter == '_' && transition.HandledForEpsilon)
+                    {
+                        transition.HandledForEpsilon = false;
                     }
                 }
             }
