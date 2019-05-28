@@ -13,6 +13,8 @@ namespace Automata_Assignment_1.Automatons
         State sink;
         Queue<PowerState> powerStateQueue = new Queue<PowerState>();
         List<String> handledStates = new List<string>();
+        List<State> concreteHandledStates = new List<State>();
+        StateSet output;
         public AutomatonGenerator(Automaton inputAutomaton)
         {
             automaton = inputAutomaton;
@@ -22,11 +24,12 @@ namespace Automata_Assignment_1.Automatons
 
         public Automaton GenerateDfa()
         {
-            StateSet output = new StateSet();
+            output = new StateSet();
 
             StateSet initialStates = GetInitialStates(automaton.AutomatonStates);
             PowerState initialPowerState = new PowerState(initialStates);
             handledStates.Add(initialPowerState.StateName);
+            concreteHandledStates.Add(initialPowerState);
             powerStateQueue.Enqueue(initialPowerState);
             while (powerStateQueue.Count > 0)
             {
@@ -73,10 +76,11 @@ namespace Automata_Assignment_1.Automatons
                     {
                         powerStateQueue.Enqueue(powerStateToEnqueue);
                         handledStates.Add(powerStateToEnqueue.StateName);
+                        concreteHandledStates.Add(powerStateToEnqueue);
                     }
                     else
                     {
-                        int x = 1;//debug purposes on ly
+                       newPowerState= concreteHandledStates.Find(x => x.StateName == powerStateToEnqueue.StateName);
                     }
                 }
                 else

@@ -51,6 +51,7 @@
     <Compile Include="Automatons\Automaton.cs" />
     <Compile Include="Automatons\AutomatonFactory.cs" />
     <Compile Include="Automatons\AutomatonGenerator.cs" />
+    <Compile Include="Automatons\FiniteLanguageAnalyzer.cs" />
     <Compile Include="Automatons\PowerState.cs" />
     <Compile Include="Automatons\SetOperations.cs" />
     <Compile Include="Automatons\State.cs" />

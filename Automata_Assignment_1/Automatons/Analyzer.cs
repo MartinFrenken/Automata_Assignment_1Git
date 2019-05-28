@@ -71,7 +71,10 @@ namespace Automata_Assignment_1.Automatons
 
             return false;
         }
+        public void IsFiniteLanguage(Automaton automaton)
+        {
 
+        }
     }
 
 }

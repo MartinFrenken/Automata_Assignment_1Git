@@ -35,6 +35,8 @@
             this.checkButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.isDetLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.isFiniteLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +44,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(23, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(810, 612);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -63,7 +65,7 @@
             // inputWordBox
             // 
             this.inputWordBox.Location = new System.Drawing.Point(837, 187);
-            this.inputWordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.inputWordBox.Margin = new System.Windows.Forms.Padding(2);
             this.inputWordBox.Name = "inputWordBox";
             this.inputWordBox.Size = new System.Drawing.Size(76, 20);
             this.inputWordBox.TabIndex = 2;
@@ -83,7 +85,7 @@
             // checkButton
             // 
             this.checkButton.Location = new System.Drawing.Point(924, 186);
-            this.checkButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkButton.Margin = new System.Windows.Forms.Padding(2);
             this.checkButton.Name = "checkButton";
             this.checkButton.Size = new System.Drawing.Size(56, 19);
             this.checkButton.TabIndex = 4;
@@ -94,10 +96,12 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.isFiniteLabel);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.isDetLbl);
             this.panel1.Controls.Add(this.isDetInfo);
             this.panel1.Location = new System.Drawing.Point(837, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(162, 85);
             this.panel1.TabIndex = 5;
@@ -110,6 +114,26 @@
             this.isDetLbl.Name = "isDetLbl";
             this.isDetLbl.Size = new System.Drawing.Size(0, 13);
             this.isDetLbl.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Is Finite:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // isFiniteLabel
+            // 
+            this.isFiniteLabel.AutoSize = true;
+            this.isFiniteLabel.Location = new System.Drawing.Point(74, 21);
+            this.isFiniteLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.isFiniteLabel.Name = "isFiniteLabel";
+            this.isFiniteLabel.Size = new System.Drawing.Size(0, 13);
+            this.isFiniteLabel.TabIndex = 8;
             // 
             // Form1
             // 
@@ -141,6 +165,8 @@
         private System.Windows.Forms.Button checkButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label isDetLbl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label isFiniteLabel;
     }
 }
 

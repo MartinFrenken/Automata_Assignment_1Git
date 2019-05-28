@@ -27,8 +27,10 @@ namespace Automata_Assignment_1
             generateGraph();
             isDetLbl.Text = analyzer.isDfa(PowerSetAutomaton).ToString();
             Console.WriteLine(analyzer.isLegalWord(generatedAutomaton, "r").ToString());
-          
-
+            FiniteLanguageAnalyzer finiteLanguageAnalyzer = new FiniteLanguageAnalyzer(PowerSetAutomaton);
+            bool isFinite = finiteLanguageAnalyzer.isFiniteLanguage();
+            isFiniteLabel.Text = isFinite.ToString();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -75,6 +77,11 @@ namespace Automata_Assignment_1
         }
 
         private void resultLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

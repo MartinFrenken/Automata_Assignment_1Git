@@ -16,6 +16,16 @@ namespace Automata_Assignment_1.Automatons
             Alphabet = alphabet;
 
         }
+        public State getFinalState()
+        {
+            State finalState = AutomatonStates.StoredStates.Find(x => x.IsEndState == true);
+            return finalState;
+        }
+        public bool isDeterministic()
+        {
+            Analyzer analyzer = new Analyzer();
+            return analyzer.isDfa(this);
+        }
 
      
         
