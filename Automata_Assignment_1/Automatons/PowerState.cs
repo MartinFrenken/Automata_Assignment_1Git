@@ -15,15 +15,18 @@ namespace Automata_Assignment_1.Automatons
             this.States = states;
             this.StateName = "";
             States = states;
+            List<String> stateNames = new List<string>();
             foreach (var state in states.StoredStates)
             {
-                this.StateName = this.StateName + state.StateName;
+                stateNames.Add(state.StateName);
                 if (state.IsEndState)
                     this.IsEndState = true;
             }
-            char[] word = this.StateName.ToCharArray();
-            Array.Sort(word);
-            this.StateName = new String(word);
+            stateNames.Sort();
+            foreach (String s in stateNames)
+            {
+                this.StateName = this.StateName +s;
+            }
         }
        
     }
