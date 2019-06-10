@@ -9,7 +9,7 @@ namespace Automata_Assignment_1.Automatons
     public class State
     {
         public string StateName { get; protected set; }
-        public bool IsBeginState { get; }
+        public bool IsBeginState { get; protected set; }
         public bool IsEndState { protected set;get; }
         public List<Transition> Neighbours { get; } = new List<Transition>();
         public bool IsDone = false;
@@ -17,6 +17,10 @@ namespace Automata_Assignment_1.Automatons
         {
             IsBeginState = false;
             IsEndState = false;
+        }
+        public void setBeginState()
+        {
+            IsBeginState = true;
         }
         public State(string stateName)
         {

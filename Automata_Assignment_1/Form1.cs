@@ -24,7 +24,9 @@ namespace Automata_Assignment_1
             Automaton PowerSetAutomaton =ag.GenerateDfa();
             dotFileWriter dw = new dotFileWriter();
             dw.writeToDotFile(PowerSetAutomaton);
-            generateGraph();
+            generateGraph(true);
+            dw.writeToDotFile(generatedAutomaton);
+            generateGraph(false);
             isDetLbl.Text = analyzer.isDfa(PowerSetAutomaton).ToString();
             Console.WriteLine(analyzer.isLegalWord(generatedAutomaton, "r").ToString());
             FiniteLanguageAnalyzer finiteLanguageAnalyzer = new FiniteLanguageAnalyzer(PowerSetAutomaton);
@@ -38,19 +40,32 @@ namespace Automata_Assignment_1
 
         }
 
-        void generateGraph()
+        void generateGraph(bool isDfa)
         {
-           
 
-            Process dot = new Process();
 
-            dot.StartInfo.FileName = "dot.exe";
 
-            dot.StartInfo.Arguments = "-Tpng -oresult.png automaton.txt";
-            dot.Start();
+            if (isDfa)
+            {
+                Process dot = new Process();
 
-            dot.WaitForExit();
-            pictureBox1.ImageLocation = "result.png";
+                dot.StartInfo.FileName = "dot.exe";
+
+                dot.StartInfo.Arguments = "-Tpng -oresultDfa.png automaton.txt";
+                dot.Start();
+
+                dot.WaitForExit();
+                pictureBox1.ImageLocation = "resultDfa.png";
+            }
+            else
+            {
+                Process dot = new Process();
+                dot.StartInfo.FileName = "dot.exe";
+                dot.StartInfo.Arguments = "-Tpng -oresult.png automaton.txt";
+                dot.Start();
+                dot.WaitForExit();
+                pictureBox2.ImageLocation = "result.png";
+            }
 
 
 
@@ -82,6 +97,11 @@ namespace Automata_Assignment_1
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

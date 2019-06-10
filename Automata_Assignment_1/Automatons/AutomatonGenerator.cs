@@ -28,6 +28,7 @@ namespace Automata_Assignment_1.Automatons
 
             StateSet initialStates = GetInitialStates(automaton.AutomatonStates);
             PowerState initialPowerState = new PowerState(initialStates);
+            initialPowerState.setBeginState();
             handledStates.Add(initialPowerState.StateName);
             concreteHandledStates.Add(initialPowerState);
             powerStateQueue.Enqueue(initialPowerState);
@@ -37,7 +38,7 @@ namespace Automata_Assignment_1.Automatons
                 addNeighbouringPowerStates(newPowerState);
                 output.add(newPowerState);
             }
-           
+            output.add(sink);
       
             return new Automaton(output,automaton.Alphabet);
 
